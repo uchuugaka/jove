@@ -917,7 +917,14 @@ size_t	size;
 		if (d.dirInfo.ioDrDirID == 2)
 			break;	/* home directory */
 	}
-	strcpy(buf, p);	/* left justify */
+	/* left justify, avoiding strcpy(), which is undefined for overlaps. */
+	{
+		char ch, *q = buf;
+
+		while ((ch = *p++) != '\0')
+			*q++ = ch;
+		*q = '\0';
+	}
 	return buf;
 }
 
