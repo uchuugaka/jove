@@ -2002,15 +2002,18 @@ char *namebuf;
 }
 
 char *
-pfile(namebuf)
+pfile(namebuf, namesiz)
 char *namebuf;
+size_t namesiz;
 {
 	SFReply frec;
 	StringPtr nm;
 
 	SFSaveDisk = 0 - cur_vol;	/* in case a Desk Accessory changed them */
 	CurDirStore = cur_dir;
-	strncpy(namebuf, filename(curbuf), FILESIZE-1);
+	if (strlen(filename(curbuf)) + 1 > namesiz)
+		return NULL;
+	strcpy(namebuf, filename(curbuf));
 	nm = cvt_fnm(namebuf);
 	SFPutFile(px, pmess, nm, 0L, &frec);
 	check_dir();	/* see if any change, set if so */

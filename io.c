@@ -893,7 +893,7 @@ JWriteFile()
 
 #ifdef MAC
 	if (Macmode) {
-		if (pfile(fnamebuf) == NULL)
+		if (pfile(fnamebuf, sizeof fnamebuf) == NULL)
 			return;
 	} else
 #endif /* MAC */
