@@ -47,7 +47,7 @@ extern jmp_buf auxjmp;
 
 extern char
 	*gethome proto((void)),
-	*pfile proto((char *)),
+	*pfile proto((char *, size_t)),
 	*gfile proto((char *));
 
 extern int	getArgs proto((char ***));
