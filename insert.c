@@ -501,7 +501,7 @@ Buffer	*whatbuf;
 		atchar = 0;
 	}
 
-	getline(atline->l_dline, genbuf);
+	jgetline(atline->l_dline, genbuf);
 	atchar += tchar;
 	linecopy(genbuf, atchar, save);
 	atline->l_dline = putline(genbuf);

@@ -1240,9 +1240,9 @@ int	Jr_Len;		/* length of Just Read Line */
 
 void
 #ifdef USE_PROTOTYPES
-getline proto((daddr addr, register char *buf))
+jgetline proto((daddr addr, register char *buf))
 #else
-getline(addr, buf)
+jgetline(addr, buf)
 daddr	addr;
 register char	*buf;
 #endif
