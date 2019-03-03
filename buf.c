@@ -475,7 +475,11 @@ register Buffer	*b;
 		/* NOTREACHED */
 	}
 	cp = jbasename(b->b_fname);
-	jamstr(tmp, cp);
+	if (strlen(cp) >= sizeof tmp) {
+		complain("[buffer name too large]");
+		/* NOTREACHED */
+	}
+	strcpy(tmp, cp);
 	while (buf_exists(tmp)) {
 		swritef(tmp, sizeof(tmp), "%s.%d", cp, try);
 		try += 1;

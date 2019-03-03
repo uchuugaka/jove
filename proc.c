@@ -332,6 +332,7 @@ char	*command;
 	static char	bnm[FILESIZE];
 	register char	*cp = bnm,
 			c;
+	const char	*p;
 
 	do {
 		c = *command++;
@@ -341,8 +342,8 @@ char	*command;
 		c = *command++;
 	}
 	*cp = '\0';
-	if ((cp = basename(bnm)) != bnm)
-		strcpy(bnm, cp);
+	if ((p = jbasename(bnm)) != bnm)
+		strcpy(bnm, p);
 
 	return bnm;
 }

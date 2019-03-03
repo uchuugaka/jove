@@ -44,7 +44,7 @@ int	argc;
 char	*argv[];
 {
 	char
-		cmd[FILESIZE*3],
+		cmd[FILESIZE*4],
 		fname[FILESIZE],
 		*home,
 		teachjove[FILESIZE];

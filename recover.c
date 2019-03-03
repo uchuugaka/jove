@@ -273,8 +273,8 @@ private bool
 add_name(fname)
 char *fname;
 {
-	char	dfile[FILESIZE],
-		rfile[FILESIZE];
+	char	dfile[FILESIZE*2],
+		rfile[FILESIZE*2];
 	struct file_pair	*fp;
 	struct rec_head		header;
 	int	fd;
@@ -449,7 +449,7 @@ private void
 restore()
 {
 	register int	i;
-	char	tofile[FILESIZE],
+	char	tofile[FILESIZE*2],
 		answer[SMALLSTRSIZE];
 	int	nrecovered = 0;
 
